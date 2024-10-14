@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" href="asset/img/favicon.png"  >
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>short</title>
+    <title>Rút gọn liên kết</title>
     <style>
       :root {
         --color-primary: #5c7cfa;
@@ -203,18 +203,18 @@
     </style>
   </head>
   <body>
-    <header><h1>short</h1></header>
+    <header><h1>Rút gọn liên kết</h1></header>
     <main x-data="app" x-cloak>
       <p x-show.transition.opacity="alert" :class="alert?.type" x-text="alert?.message"></p>
-      <input placeholder="输入要缩短的网址..." x-model="url" x-ref="url" />
+      <input placeholder="Nhập liên kết cần rút gọn..." x-model="url" x-ref="url" />
       <details>
-        <summary>自定义设置</summary>
+        <summary>Cài đặt tùy chỉnh</summary>
         <div>
           <input placeholder="slug" x-model="slug" />
-          <small>Slug 默认是随机生成的短 id。</small>
+          <small>Slug rút gọn tùy chỉnh mặc định được tạo ngẫu nhiên.</small>
         </div>
       </details>
-      <button :class="{ loading }" :disabled="loading || isValidated()" @click="submit($refs, $nextTick)">生成</button>
+      <button :class="{ loading }" :disabled="loading || isValidated()" @click="submit($refs, $nextTick)">Tạo liên kết</button>
     </main>
     <footer>
      service
@@ -231,12 +231,12 @@
         },
         submit ($refs, $nextTick) {
           if (!this.url) {
-            this.alert = { type: 'error', message: '缺少必需的参数：url。' }
+            this.alert = { type: 'error', message: 'Thiếu tham số cần thiết:：url.' }
             return
           }
 
           if (this.isValidated()) {
-            this.alert = { type: 'error', message: '非法格式：url。' }
+            this.alert = { type: 'error', message: 'Định dạng không hợp lệ: url.' }
             return
           }
 
@@ -263,7 +263,7 @@
 
               $nextTick(() => {
                 $refs.url.select()
-                this.alert = { type: 'success', message: `链接 ${document.execCommand('Copy') ? '复制' : '生成'} ` }
+                this.alert = { type: 'success', message: `Liên kết ${document.execCommand('Copy') ? 'đã sao chép' : 'đã tạo'} ` }
               })
             })
             .catch(e => {

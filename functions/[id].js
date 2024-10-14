@@ -21,7 +21,7 @@ export async function onRequestGet(context) {
         second: '2-digit'
     };
     const timedata = new Date();
-    const formattedDate = new Intl.DateTimeFormat('zh-CN', options).format(timedata);
+    const formattedDate = new Intl.DateTimeFormat('en-US', options).format(timedata);
 
     const slug = params.id;
 

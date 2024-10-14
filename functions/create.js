@@ -35,7 +35,7 @@ export async function onRequest(context) {
     const origin = `${originurl.protocol}//${originurl.hostname}`
 
     const options = {
-        timeZone: 'Asia/Shanghai',
+        timeZone: 'Asia/Ho_Chi_Minh',
         year: 'numeric',
         month: 'long',
         day: 'numeric',
@@ -117,8 +117,8 @@ export async function onRequest(context) {
             })
         }
 
-        // 生成随机slug
-        const slug2 = slug ? slug : generateRandomString(4);
+        // 生成随机slug Random 6 char
+        const slug2 = slug ? slug : generateRandomString(6);
         // console.log('slug', slug2);
 
         const info = await env.DB.prepare(`INSERT INTO links (url, slug, ip, status, ua, create_time) 
